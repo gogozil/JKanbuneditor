@@ -1,0 +1,38 @@
+.choice-box > .open-button > .arrow{
+    -fx-opacity: 0;
+}
+.label {
+	-fx-margin:0px;
+}
+
+.choice-box{
+    -fx-background-color: transparent;
+    -fx-padding:0px;
+}
+
+.menu-button{
+	-fx-background-color: transparent;
+    -fx-width:5px;
+    -fx-padding:-2px;
+}
+
+.menu-button > .arrow-button > .arrow{
+    -fx-opacity: 0;
+}
+
+.menu-button:hover{
+-fx-background-color: #d3d3d3;
+-fx-opacity: 0.2;
+}
+
+
+.choice-box:hover{
+-fx-background-color: #d3d3d3;
+-fx-opacity: 0.2;
+}
+
+#kana .choice-box .label{
+	-fx-text-fill:red;
+}
+
+
