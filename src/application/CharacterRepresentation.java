@@ -78,8 +78,8 @@ public class CharacterRepresentation {
     }
     
     public void setOkurigana(String s) {
-    	//okuriganaLS.add(s);
     	okuriganaLS.setText(s);
+    	okuriganaLS.add(s);
     }
     public void setAnnotatedCharacter(AnnotatedCharacter ac_arg) {
     	this.ac=ac_arg;

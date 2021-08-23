@@ -129,6 +129,9 @@ public class LabelSelectable {
     }
     
     public void add(String s) {
+    	for(int i=0;i< mb.getItems().size();i++) {
+    		if(mb.getItems().get(i).getText().equals(s)){return;}
+    	}
     	MenuItem newmenu=new MenuItem(s);
     	newmenu.setOnAction(new EventHandler<ActionEvent>() {
     	    @Override
@@ -178,7 +181,7 @@ public class LabelSelectable {
     	}else
     	{
     		mb.getItems().remove(mb.getItems().size()-1);
-    		add(currentString);
+    		if(!currentString.equals("")) {add(currentString);}else {new_choice=true;}
     	}
     }
     

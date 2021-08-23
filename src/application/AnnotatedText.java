@@ -193,14 +193,12 @@ public class AnnotatedText {
 			}
 			while(ac.get(i).endbracket>0){
 					kakikudashi+=kaeriten.pop().get_reading(true);
-
 				//System.out.println(ac.get(i).endbracket);
 				ac.get(i).endbracket--;
 			}
 			if(ac.get(i).judou.equals(judouconst[1])) {kakikudashi+="、";}
 			if(ac.get(i).judou.equals(judouconst[2])) {kakikudashi+="。";}
 		}
-		
 		return kakikudashi;
 	}
 	
