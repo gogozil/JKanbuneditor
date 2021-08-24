@@ -78,7 +78,7 @@ public class CharacterRepresentation {
     }
     
     public void setOkurigana(String s) {
-    	okuriganaLS.setText(s);
+    	okuriganaLS.change(s);
     	okuriganaLS.add(s);
     }
     public void setAnnotatedCharacter(AnnotatedCharacter ac_arg) {

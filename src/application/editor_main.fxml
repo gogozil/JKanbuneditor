@@ -82,8 +82,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                   </GridPane>
-                  <Button fx:id="right" layoutX="663.0" layoutY="677.0" mnemonicParsing="false" text="&gt;" AnchorPane.rightAnchor="100.0" />
-                  <Button fx:id="left" layoutX="60.0" layoutY="677.0" mnemonicParsing="false" text="&lt;" AnchorPane.leftAnchor="100.0" />
+                  <Button fx:id="right" layoutX="663.0" layoutY="677.0" mnemonicParsing="false" onAction="#shift_right" text="&gt;" AnchorPane.rightAnchor="100.0" />
+                  <Button fx:id="left" layoutX="60.0" layoutY="677.0" mnemonicParsing="false" onAction="#shift_left" text="&lt;" AnchorPane.leftAnchor="100.0" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -95,8 +95,7 @@
                   <Button fx:id="converterbtn" layoutX="608.0" layoutY="588.0" mnemonicParsing="false" onAction="#convert" text="Convert Original" />
                   <TextArea fx:id="originalText_a" layoutX="42.0" layoutY="307.0" prefHeight="270.0" prefWidth="717.0" promptText="Insert Original Text with Annotation" wrapText="true" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="300.0" />
                   <Button fx:id="save" layoutX="608.0" layoutY="629.0" mnemonicParsing="false" onAction="#convert_to_text" text="Save Annotated" />
-                  <Button fx:id="load_annotated" layoutX="424.0" layoutY="629.0" mnemonicParsing="false" onAction="#load_from_annotated" text="Load Annotated" />
-                  <MenuButton fx:id="testmenu" layoutX="54.0" layoutY="602.0" mnemonicParsing="false" text="MenuButton" />
+                  <Button fx:id="load_annotated" layoutX="471.0" layoutY="629.0" mnemonicParsing="false" onAction="#load_from_annotated" text="Load Annotated" />
                </children></AnchorPane>
       </content>
     </Tab>
@@ -105,7 +104,7 @@
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <TextArea fx:id="kakikudashiText" layoutX="40.0" layoutY="23.0" prefHeight="270.0" promptText="Kakikudashi Text" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="20.0" />
-                  <Button fx:id="wdconvert" layoutX="565.0" layoutY="344.0" mnemonicParsing="false" onAction="#kakikudashi_convert" text="Kakikudashi" />
+                  <Button fx:id="wdconvert" layoutX="639.0" layoutY="315.0" mnemonicParsing="false" onAction="#kakikudashi_convert" text="Kakikudashi" />
                </children>
             </AnchorPane>
          </content>

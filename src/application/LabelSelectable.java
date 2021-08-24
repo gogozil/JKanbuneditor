@@ -85,7 +85,7 @@ public class LabelSelectable {
     		if(currentRoman.length()>=1) {
     			currentRoman=currentRoman.substring(0, currentRoman.length()-1);
     			System.out.println("BACK SPACE");
-    		}
+    		}else {currentRoman="";}
     	currentString=AnnotatedText.convert_text_type(currentRoman,type+2);
     	System.out.println(currentString);
     	update();
@@ -116,7 +116,6 @@ public class LabelSelectable {
 
     
     public void selected(String s) {
-        change(s);
         if(ac!=null) {
         	if(type==OKURIGANA) {
         		ac.selected_okurigana=s;
@@ -126,6 +125,7 @@ public class LabelSelectable {
         		ac.selected_kaeriten=s;
         	}
         }
+        change(s);
     }
     
     public void add(String s) {
@@ -176,12 +176,14 @@ public class LabelSelectable {
     
     private void update() {
     	if(new_choice) {
+    		if(!currentString.equals("")) {
     		add(currentString);
     		new_choice=false;
+    		}
     	}else
     	{
     		mb.getItems().remove(mb.getItems().size()-1);
-    		if(!currentString.equals("")) {add(currentString);}else {new_choice=true;}
+    		if(!currentString.equals("")) {add(currentString);}else{new_choice=true;}
     	}
     }
     

@@ -43,12 +43,6 @@ public class Controller {
 
         //anchorpane_annotated.getChildren().add(gp2);
         //AnchorPane.setRightAnchor(gp2,40.0);
-        Menu parentMenu = new Menu("Parent");
-        MenuItem childMenuItem1 = new MenuItem("Child 1");
-        MenuItem childMenuItem2 = new MenuItem("Child 2");
-        parentMenu.getItems().addAll(childMenuItem1, childMenuItem2);
-        //test1.getItems().add("test!");
-        testmenu.getItems().add(parentMenu);
         clist=new CharacterRepresentationList(KanjiNUM, gp);
         convert();
     }
@@ -73,4 +67,11 @@ public class Controller {
     	clist.update();
     }
     
+    public void shift_left() {
+    	clist.scroll(1,10);
+    }
+    
+    public void shift_right() {
+    	clist.scroll(-1,10);
+    }
 }
