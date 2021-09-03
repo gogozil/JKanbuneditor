@@ -27,7 +27,6 @@ public class LabelSelectable {
 	public static final int KAERITEN=2;
 	boolean from_changed=true;
 	public AnnotatedCharacter ac;
-	//int character_number;
 
 	
 	public LabelSelectable(int type) {
@@ -36,8 +35,6 @@ public class LabelSelectable {
 		saidoku=new Label();
 		new_choice=true;
 		this.type=type;
-		//Menu empty=new Menu();
-        //mb.getItems().add(empty);
     	lb.setWrapText(true);
     	lb.setFont(new Font("monospaced",11));
     	lb.setTextOverrun(OverrunStyle.CLIP);

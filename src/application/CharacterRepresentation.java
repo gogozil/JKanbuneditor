@@ -17,7 +17,8 @@ import javafx.scene.text.Font;
 
 
 public class CharacterRepresentation {
-    public Label kanji,judou;
+    public Label kanji;
+    public PunctuationLabel judou;
     private LabelSelectable kaeriten_choice;
     public LabelSelectable okuriganaLS, yomiganaLS;
     public int character_number;
@@ -27,16 +28,14 @@ public class CharacterRepresentation {
     	kanji=new Label();
 		//kanji.setFont(new Font("YuMincho +36p Kana Medium",48));
 		//Font.loadFont(CharacterRepresentation.class.getResource("ipaexm.ttf").toExternalForm(), 10);
-		kanji.setFont(Font.loadFont("file:/Users/inagakiko/CCeditor/JKanbuneditor/src/application/SourceHanSerifCN-Regular.ttf", 48));
+		kanji.setFont(Font.loadFont(CharacterRepresentation.class.getResource("SourceHanSerifCN-Regular.ttf").toExternalForm(), 48));
 		okuriganaLS=new LabelSelectable(LabelSelectable.OKURIGANA);
 		yomiganaLS=new LabelSelectable(LabelSelectable.YOMIGANA);
 		kanji.setText("");
         kaeriten_choice=new LabelSelectable(LabelSelectable.KAERITEN);
         String[] kaeriten={"","レ","一","二","三","一レ","上","中","下","甲","乙","丙"};
         kaeriten_choice.addAll(kaeriten);
-    	judou=new Label();
-    	judou.setFont(new Font("monospaced",10));
-    	judou.setText("");
+    	judou=new PunctuationLabel();
     	character_number=num;
     }
     
