@@ -144,6 +144,7 @@ public class AnnotatedText {
 		System.out.println(ac.size());
 		int bnum=0;
 		int onetwo=0;
+		int updown=0;
 		for(int i=0;i<ac.size();i++) {
 			if(ac.get(i).selected_kaeriten.equals("レ")){
 				brackets+=ac.get(i).kanji+"(";
@@ -170,6 +171,22 @@ public class AnnotatedText {
 				ac.get(i).bracket++;
 				bnum+=onetwo+1;
 				onetwo=0;
+			}else if(ac.get(i).selected_kaeriten.equals("中")||ac.get(i).selected_kaeriten.equals("下")) {
+				brackets+=ac.get(i).kanji+"(";
+				ac.get(i).bracket++;
+				updown++;
+				if(bnum>0) {
+					updown+=bnum;
+					System.out.println(String.valueOf(updown)+" "+String.valueOf(bnum));
+					bnum=0;
+				}
+			}else if(ac.get(i).selected_kaeriten.equals("上")){
+				brackets+=ac.get(i).kanji;
+				while(updown>0) {
+					brackets+=")";
+					ac.get(i).endbracket++;
+					updown--;
+				}				
 			}else{
 				brackets+=ac.get(i).kanji;//muten
 				while(bnum>0) {

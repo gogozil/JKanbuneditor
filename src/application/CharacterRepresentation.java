@@ -33,7 +33,7 @@ public class CharacterRepresentation {
 		yomiganaLS=new LabelSelectable(LabelSelectable.YOMIGANA);
 		kanji.setText("");
         kaeriten_choice=new LabelSelectable(LabelSelectable.KAERITEN);
-        String[] kaeriten={"","レ","一","二","三","一レ","上","中","下","甲","乙","丙"};
+        String[] kaeriten={"","レ","一","二","三","四","一レ","上","中","下","甲","乙","丙"};
         kaeriten_choice.addAll(kaeriten);
     	judou=new PunctuationLabel();
     	character_number=num;

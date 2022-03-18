@@ -13,7 +13,7 @@
   <tabs>
     <Tab fx:id="annotated" text="Annotated">
       <content>
-        <AnchorPane fx:id="anchorpane_annotated" minHeight="0.0" minWidth="0.0" prefHeight="694.0" prefWidth="800.0">
+        <AnchorPane fx:id="anchorpane_annotated" minHeight="0.0" minWidth="0.0" prefHeight="694.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;">
                <children>
                   <GridPane fx:id="gp" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0">
                     <columnConstraints>
