@@ -80,6 +80,10 @@ public class CharacterRepresentation {
     	okuriganaLS.change(s);
     	okuriganaLS.add(s);
     }
+    public void setYomigana(String s) {
+    	yomiganaLS.change(s);
+    	yomiganaLS.add(s);
+    }
     public void setAnnotatedCharacter(AnnotatedCharacter ac_arg) {
     	this.ac=ac_arg;
     	update();
@@ -92,5 +96,7 @@ public class CharacterRepresentation {
     	judou.setText(ac.judou);
     	setKaeriten(ac.selected_kaeriten);
     	setOkurigana(ac.selected_okurigana);
+    	setYomigana(ac.selected_yomigana);
+
     }
 }

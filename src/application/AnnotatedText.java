@@ -96,7 +96,7 @@ public class AnnotatedText {
 	static public String convert_Text() {
 		String ret="";
 		for(int i=0;i<ac.size();i++) {
-			ret+=ac.get(i).kanji+"#"+ac.get(i).selected_okurigana+"#"+ac.get(i).selected_kaeriten+"#"+ac.get(i).selected_yomigana+"#/";
+			ret+=ac.get(i).kanji+"#"+ac.get(i).selected_okurigana+"#"+ac.get(i).selected_kaeriten+"#"+ac.get(i).selected_yomigana+"#"+ac.get(i).judou+"/";
 		}
 		return ret;
 	}
@@ -227,13 +227,17 @@ public class AnnotatedText {
 		ac=new ArrayList<AnnotatedCharacter>();
 		String[] temp=s.split("/");
 		for(int i=0;i<temp.length;i++) {
-			String[] temp2=temp[i].split("#",-1);
-			ac.add(new AnnotatedCharacter(temp2[0],judouconst[0]));
-			System.out.print(temp[i]);
-			if(temp2.length>=3) {
+			String[] temp2=(temp[i]+" ").split("#",-1);
+			System.out.println(temp[i]);
+			if(temp2.length>=4) {
+				if(temp2[4].contains(judouconst[1])) {ac.add(new AnnotatedCharacter(temp2[0],judouconst[1]));}
+				else if(temp2[4].contains(judouconst[2])) {ac.add(new AnnotatedCharacter(temp2[0],judouconst[2]));}else {
+					ac.add(new AnnotatedCharacter(temp2[0],judouconst[0]));
+				}
 			ac.get(i).selected_okurigana=temp2[1];
-			System.out.println(temp2[0]+temp2[1]+temp2[2]);
+			System.out.println(temp2[0]+temp2[1]+temp2[2]+temp2[3]+temp2[4]);
 			ac.get(i).selected_kaeriten=temp2[2];
+			ac.get(i).selected_yomigana=temp2[3];
 			}
 		}
 	}
