@@ -19,7 +19,7 @@ public class AnnotatedText {
     static public final int KATAKANA_TO_HIRAGANA=1;
     static public final int ROMAJI_TO_KATAKANA=2;
     static public final int ROMAJI_TO_HIRAGANA=3;
-    static private final String[] judouconst= {"","ヽ ","⚪︎ "};
+    static final String[] judouconst= {"　","ヽ ","⚪︎ "};
     static private String[] dictionary;
     
 	private AnnotatedText(String s) {
@@ -133,6 +133,14 @@ public class AnnotatedText {
 				if(hyphen>=0) {break;}
 				}
 			}
+			ret.add_okurigana_candidates("ヲ","n","");
+			ret.add_okurigana_candidates("ニ","n","");
+			ret.add_okurigana_candidates("ト","n","");
+			ret.add_okurigana_candidates("ノ","n","");
+			ret.add_okurigana_candidates("ハ","n","");
+
+
+
 		return ret;
 	}
 	

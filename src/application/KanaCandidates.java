@@ -36,10 +36,14 @@ public class KanaCandidates {
 		switch(okurigana_list.get(i)[1]) {
 		case "vh4":
 		stem=replaceLast(stem,"フ","");
-		return new String[]{yomi+stem+"フ",stem+"ハ",stem+"ヒ",stem+"フ",stem+"フコト",stem+"ヘ"};
+		return new String[]{yomi+stem+"フ",stem+"ハ",stem+"ヒ",stem+"フコト",stem+"ヘ"};
 		case "vsh":
 		stem=replaceLast(stem,"ス","");
+		stem=replaceLast(stem,"ズ","");
 		return new String[]{yomi+stem+"ス",stem+"セ",stem+"シ",stem+"ス",stem+"スル",stem+"スルコト",stem+"セヨ"};
+		case "vr4":
+		stem=replaceLast(stem,"ル","");
+		return new String[]{yomi+stem+"ル",stem+"ラ",stem+"リ",stem+"ル",stem+"ルコト",stem+"レ"};
 		default:
 		break;
 		}
