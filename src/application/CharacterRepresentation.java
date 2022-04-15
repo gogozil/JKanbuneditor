@@ -84,6 +84,8 @@ public class CharacterRepresentation {
     	yomiganaLS.change(s);
     	yomiganaLS.add(s);
     }
+    
+
     public void setAnnotatedCharacter(AnnotatedCharacter ac_arg) {
     	this.ac=ac_arg;
     	update();
@@ -94,6 +96,7 @@ public class CharacterRepresentation {
     	kaeriten_choice.setAnnotatedCharacter(ac);
     	kanji.setText(ac.kanji);
     	judou.setText(ac.judou);
+    	judou.setAnnotatedCharacter(ac);
     	setKaeriten(ac.selected_kaeriten);
     	setOkurigana(ac.selected_okurigana);
     	setYomigana(ac.selected_yomigana);
