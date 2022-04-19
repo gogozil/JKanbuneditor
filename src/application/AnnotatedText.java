@@ -29,7 +29,7 @@ public class AnnotatedText {
 		Scanner sc;
 		ArrayList<String> ret=new ArrayList();
 		try {
-			sc = new Scanner(new File("/Users/inagakiko/CCeditor/JKanbuneditor/src/application/Unihan-kJapaneseOnKun_Kanbun_Mod.txt"));
+			sc = new Scanner(new File("src/application/Unihan-kJapaneseOnKun_Kanbun_Mod.txt"));
 			int i=0;
 			dictionary=new String[13375];
 			while (sc.hasNext())  //returns a boolean value  
