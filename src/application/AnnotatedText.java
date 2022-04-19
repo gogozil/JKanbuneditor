@@ -96,7 +96,9 @@ public class AnnotatedText {
 	static public String convert_Text() {
 		String ret="";
 		for(int i=0;i<ac.size();i++) {
-			ret+=ac.get(i).kanji+"#"+ac.get(i).selected_okurigana+"#"+ac.get(i).selected_kaeriten+"#"+ac.get(i).selected_yomigana+"#"+ac.get(i).judou+"/";
+			String judoutemp;
+			if(ac.get(i).judou.equals(judouconst[0])) {judoutemp="";}else {judoutemp=ac.get(i).judou;}
+			ret+=ac.get(i).kanji+"#"+ac.get(i).selected_okurigana+"#"+ac.get(i).selected_kaeriten+"#"+ac.get(i).selected_yomigana+"#"+judoutemp+"/";
 		}
 		return ret;
 	}
@@ -207,14 +209,20 @@ public class AnnotatedText {
 		System.out.println(brackets);
 		
 		for(int i=0;i<ac.size();i++) {
+			if(!(ac.get(i).saidoku.equals(""))) {
+				kakikudashi+=ac.get(i).get_reading(false);
+				System.out.println("Saidoku"+ac.get(i).get_reading(false));
+			}
+			
 			if(ac.get(i).bracket>0) {
-				if(!ac.get(i).saidoku.equals("")) {
-					kakikudashi+=ac.get(i).get_reading(false);
-				}
 				kaeriten.push(ac.get(i));
 				ac.get(i).bracket--;
 			}else{
+				if(!ac.get(i).saidoku.equals("")) {
+					kakikudashi+=ac.get(i).get_reading(true);
+				}else {
 				kakikudashi+=ac.get(i).get_reading(false);
+				}
 			}
 			while(ac.get(i).endbracket>0){
 					kakikudashi+=kaeriten.pop().get_reading(true);

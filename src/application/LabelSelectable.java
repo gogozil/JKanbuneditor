@@ -113,11 +113,19 @@ public class LabelSelectable {
 
     
     public void selected(String s) {
+
         if(ac!=null) {
         	if(type==OKURIGANA) {
-        		ac.selected_okurigana=s;
+        		int hyphen=s.indexOf(",");
+        		if(hyphen>=0) {
+            		ac.selected_okurigana=s.substring(0,hyphen);
+            		ac.saidoku=s.substring(hyphen+1);
+            		System.out.println(ac.selected_okurigana+" "+ac.saidoku);
+        		}else{
+                	ac.selected_okurigana=s;
+        		}
         	}else if(type==YOMIGANA) {
-        		ac.selected_yomigana=s;
+                	ac.selected_yomigana=s;
         	}else if(type==KAERITEN) {
         		ac.selected_kaeriten=s;
         	}
