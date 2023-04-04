@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -12,20 +13,22 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.OverrunStyle;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 
 
 public class CharacterRepresentation {
-    public Label kanji;
+    public KanjiLabel kanji;
     public PunctuationLabel judou;
     private LabelSelectable kaeriten_choice;
     public LabelSelectable okuriganaLS, yomiganaLS;
     public int character_number;
     public AnnotatedCharacter ac;
+    public boolean okiji;
     
     public CharacterRepresentation(int num) {
-    	kanji=new Label();
+    	kanji=new KanjiLabel();
 		//kanji.setFont(new Font("YuMincho +36p Kana Medium",48));
 		//Font.loadFont(CharacterRepresentation.class.getResource("ipaexm.ttf").toExternalForm(), 10);
 		kanji.setFont(Font.loadFont(CharacterRepresentation.class.getResource("SourceHanSerifCN-Regular.ttf").toExternalForm(), 48));
@@ -37,11 +40,13 @@ public class CharacterRepresentation {
         kaeriten_choice.addAll(kaeriten);
     	judou=new PunctuationLabel();
     	character_number=num;
+    	okiji=false;
     }
     
     public void add_list(KanaCandidates kc) {
     	for(int i=0;i<kc.get_okurigana_size();i++) {
     	okuriganaLS.add_children(kc.get_okurigana_candidates(i));
+    	//yomiganaLS.add_children(kc.get_yomigana_candidates(i));
     	}
     }
     
@@ -90,10 +95,12 @@ public class CharacterRepresentation {
     	this.ac=ac_arg;
     	update();
     }
+    
     public void update() {
     	okuriganaLS.setAnnotatedCharacter(ac);
     	yomiganaLS.setAnnotatedCharacter(ac);
     	kaeriten_choice.setAnnotatedCharacter(ac);
+    	kanji.setAnnotatedCharacter(ac);
     	kanji.setText(ac.kanji);
     	judou.setText(ac.judou);
     	judou.setAnnotatedCharacter(ac);

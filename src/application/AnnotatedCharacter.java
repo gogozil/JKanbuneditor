@@ -8,6 +8,7 @@ public class AnnotatedCharacter {
 	String selected_yomigana;
 	String selected_kaeriten;
 	String saidoku;
+	boolean okiji;
 	ArrayList<String> okurigana_List;
 	ArrayList<String> yomigana_List;
 	String yomigana;
@@ -24,23 +25,19 @@ public class AnnotatedCharacter {
 		saidoku="";
 		bracket=0;
 		endbracket=0;
+		okiji=false;
 	}
 	
 	public String get_reading(boolean ifsaidoku) {
 		String reading;
+		if(okiji) {
+			return selected_okurigana;
+		}
 		if(saidoku=="") {ifsaidoku=false;}
 		if(ifsaidoku) {
-		reading=saidoku;
+			reading=saidoku;
 		}else {
-			if(kanji.equals("不")) {
-				if(selected_okurigana.equals("")) {
-					reading="ズ";
-				}else {
-				reading="ザ"+selected_okurigana;
-				}
-			}else {
-		reading=kanji+selected_okurigana;
-			}
+			reading=kanji+selected_okurigana;
 		}
 		return reading;
 	}

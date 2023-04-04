@@ -47,8 +47,8 @@ public class LabelSelectable {
     	lb.setStyle("-fx-margin:-2px;-fx-border:-2px;-fx-padding:-4px;");
     	mb.setStyle("-fx-margin:-2px;-fx-border:-2px;-fx-padding:-4px;");
     	if(type!=KAERITEN) {
-		mb.setOnKeyTyped(event->{key_input(event);});
-		mb.setOnKeyReleased(event->{key_delete(event);});
+    		mb.setOnKeyTyped(event->{key_input(event);});
+    		mb.setOnKeyReleased(event->{key_delete(event);});
     	}
         currentRoman="";
 	}
@@ -125,7 +125,7 @@ public class LabelSelectable {
                 	ac.selected_okurigana=s;
         		}
         	}else if(type==YOMIGANA) {
-                	ac.selected_yomigana=s;
+                ac.selected_yomigana=s;
         	}else if(type==KAERITEN) {
         		ac.selected_kaeriten=s;
         	}

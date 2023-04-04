@@ -31,7 +31,7 @@ public class AnnotatedText {
 		try {
 			sc = new Scanner(new File("src/application/Unihan-kJapaneseOnKun_Kanbun_Mod.txt"));
 			int i=0;
-			dictionary=new String[13375];
+			dictionary=new String[13324];
 			while (sc.hasNext())  //returns a boolean value  
 			{
 			dictionary[i]=sc.next();
@@ -130,7 +130,6 @@ public class AnnotatedText {
 						ret.add_okurigana_candidates(convert_text_type(kanas[j].substring(hyphen+1),HIRAGANA_TO_KATAKANA),type,yomi);
 						}else {
 						}
-					
 					}
 				if(hyphen>=0) {break;}
 				}
@@ -231,6 +230,10 @@ public class AnnotatedText {
 			}
 			if(ac.get(i).judou.equals(judouconst[1])) {kakikudashi+="、";}
 			if(ac.get(i).judou.equals(judouconst[2])) {kakikudashi+="。";}
+		}
+		
+		for(int i=0;i<katakana_List.length;i++) {
+			kakikudashi=kakikudashi.replaceAll(katakana_List[i],hiragana_List[i]);
 		}
 		return kakikudashi;
 	}
