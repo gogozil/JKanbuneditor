@@ -18,13 +18,13 @@ public class KanjiLabel extends Label {
     	this.onMouseClickedProperty().set(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent e) {
-            	toggleOkiji();
+            	setOkiji(!okiji);
             }
     	});
 	}
 	
-	public void toggleOkiji() {
-		okiji=!okiji;
+	public void setOkiji(boolean okj) {
+		okiji=okj;
 		if(okiji) {
 			this.setTextFill(Color.GRAY);
 		}else {

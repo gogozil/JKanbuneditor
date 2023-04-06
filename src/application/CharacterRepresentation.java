@@ -101,6 +101,7 @@ public class CharacterRepresentation {
     	yomiganaLS.setAnnotatedCharacter(ac);
     	kaeriten_choice.setAnnotatedCharacter(ac);
     	kanji.setAnnotatedCharacter(ac);
+    	kanji.setOkiji(ac.okiji);
     	kanji.setText(ac.kanji);
     	judou.setText(ac.judou);
     	judou.setAnnotatedCharacter(ac);

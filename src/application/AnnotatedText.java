@@ -80,13 +80,13 @@ public class AnnotatedText {
 		int i=0;
 		while(i<s.length()-1) {
 			if(s.substring(i+1,i+2).equals("、")||s.substring(i+1,i+2).equals("，")) {
-			ac.add(new AnnotatedCharacter(s.substring(i,i+1),judouconst[1]));
+			ac.add(new AnnotatedCharacter(s.substring(i,i+1),judouconst[1],false));
 			i+=2;
 			}else if(s.substring(i+1,i+2).equals("。")){
-			ac.add(new AnnotatedCharacter(s.substring(i,i+1),judouconst[2]));
+			ac.add(new AnnotatedCharacter(s.substring(i,i+1),judouconst[2],false));
 			i+=2;
-			}else {
-			ac.add(new AnnotatedCharacter(s.substring(i,i+1),judouconst[0]));
+			}else{
+			ac.add(new AnnotatedCharacter(s.substring(i,i+1),judouconst[0],false));
 			i++;
 			}			
 		}
@@ -97,8 +97,12 @@ public class AnnotatedText {
 		String ret="";
 		for(int i=0;i<ac.size();i++) {
 			String judoutemp;
+			String okijitemp;
+			String okurigana;
+			if(ac.get(i).okiji) {okijitemp="-";}else {okijitemp="";}
+			if(ac.get(i).saidoku!="") {okurigana=ac.get(i).selected_okurigana+","+ac.get(i).saidoku;}else{okurigana=ac.get(i).selected_okurigana;}
 			if(ac.get(i).judou.equals(judouconst[0])) {judoutemp="";}else {judoutemp=ac.get(i).judou;}
-			ret+=ac.get(i).kanji+"#"+ac.get(i).selected_okurigana+"#"+ac.get(i).selected_kaeriten+"#"+ac.get(i).selected_yomigana+"#"+judoutemp+"/";
+			ret+=ac.get(i).kanji+okijitemp+"#"+okurigana+"#"+ac.get(i).selected_kaeriten+"#"+ac.get(i).selected_yomigana+"#"+judoutemp+"/";
 		}
 		return ret;
 	}
@@ -248,13 +252,20 @@ public class AnnotatedText {
 		for(int i=0;i<temp.length;i++) {
 			String[] temp2=(temp[i]+" ").split("#",-1);
 			System.out.println(temp[i]);
+			boolean okiji_load=temp2[0].contains("-");
+			temp2[0]=temp2[0].replace("-","");
 			if(temp2.length>=4) {
-				if(temp2[4].contains(judouconst[1])) {ac.add(new AnnotatedCharacter(temp2[0],judouconst[1]));}
-				else if(temp2[4].contains(judouconst[2])) {ac.add(new AnnotatedCharacter(temp2[0],judouconst[2]));}else {
-					ac.add(new AnnotatedCharacter(temp2[0],judouconst[0]));
+				if(temp2[4].contains(judouconst[1])) {ac.add(new AnnotatedCharacter(temp2[0],judouconst[1],okiji_load));}
+				else if(temp2[4].contains(judouconst[2])) {ac.add(new AnnotatedCharacter(temp2[0],judouconst[2],okiji_load));}else {
+					ac.add(new AnnotatedCharacter(temp2[0],judouconst[0],okiji_load));
 				}
-			ac.get(i).selected_okurigana=temp2[1];
-			System.out.println(temp2[0]+temp2[1]+temp2[2]+temp2[3]+temp2[4]);
+			String[] temp3=temp2[1].split(",");
+			if(temp3.length==2) {
+				ac.get(i).selected_okurigana=temp3[0];
+				ac.get(i).saidoku=temp3[1];
+			}else {
+				ac.get(i).selected_okurigana=temp2[1];
+			}
 			ac.get(i).selected_kaeriten=temp2[2];
 			ac.get(i).selected_yomigana=temp2[3];
 			}

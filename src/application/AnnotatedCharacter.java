@@ -16,7 +16,7 @@ public class AnnotatedCharacter {
 	int bracket;
 	int endbracket;
 	
-	public AnnotatedCharacter(String kanji,String judou) {
+	public AnnotatedCharacter(String kanji,String judou,boolean okiji_arg) {
 		this.kanji=kanji;
 		this.judou=judou;
 		selected_kaeriten="";
@@ -25,13 +25,13 @@ public class AnnotatedCharacter {
 		saidoku="";
 		bracket=0;
 		endbracket=0;
-		okiji=false;
+		okiji=okiji_arg;
 	}
 	
 	public String get_reading(boolean ifsaidoku) {
 		String reading;
 		if(okiji) {
-			return selected_okurigana;
+			return selected_yomigana+selected_okurigana;
 		}
 		if(saidoku=="") {ifsaidoku=false;}
 		if(ifsaidoku) {
